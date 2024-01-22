@@ -33,6 +33,7 @@ class SqlliteConnectionFactory {
 
     //Create path for database
     String dbPath = p.join(appDocumentsDir.path, "databases", _DATABASE_NAME);
+    debugPrint('-=-=-=-=-=-=-=- DB=$dbPath');
     if (_db == null) {
       await _lock.synchronized(() async {
         _db ??= await databaseFactory.openDatabase(

@@ -4,38 +4,34 @@ import 'package:autocenter/app/modules/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatefulWidget {
-
-  const AppWidget({ super.key });
+  const AppWidget({super.key});
 
   @override
   State<AppWidget> createState() => _AppWidgetState();
 }
 
 class _AppWidgetState extends State<AppWidget> {
-
   var sqliteAdm = SqliteAdmConnection();
 
-@override
-void initState() {
-  super.initState();
-  WidgetsBinding.instance.removeObserver(sqliteAdm);
-}
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.removeObserver(sqliteAdm);
+  }
 
-@override
-void dispose() {
-  super.dispose();
-  WidgetsBinding.instance.addObserver(sqliteAdm);
-}
+  @override
+  void dispose() {
+    super.dispose();
+    WidgetsBinding.instance.addObserver(sqliteAdm);
+  }
 
-   @override
-   Widget build(BuildContext context) {
-       return MaterialApp(
-        title: "Auto Center App",
-        initialRoute: '/login',
-        routes: {
-          ...AuthModule().routers
-        },
-        home: const SplashPage(),
-       );
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Auto Center App",
+      initialRoute: '/login',
+      routes: {...AuthModule().routers},
+      home: const SplashPage(),
+    );
   }
 }
