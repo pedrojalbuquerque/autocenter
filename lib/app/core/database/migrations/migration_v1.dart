@@ -26,11 +26,19 @@ class MigrationV1 implements Migration {
       id Integer primary key autoincrement,
         client_id Integer,
         created_at datetime,
-        amount double,
+        cost_amount double,
+        sell_amount double,
         discount double,
         payment_type char(30),
         installments Integer,
         foreign key (client_id) references client(id)
+        )
+    ''');
+    
+    batch.execute('''CREATE TABLE users (
+        id Integer primary key autoincrement,
+        login char(30),
+        password char(30)
         )
     ''');
 

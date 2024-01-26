@@ -9,10 +9,9 @@ class AutoCenterLogo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-          'assets/images/logo.jpg',
+          'assets/images/logo.png',
           height: 200,
         ),
-        Text('AutoCenter App', style: Theme.of(context).textTheme.titleLarge,),
       ],
     );
   }
